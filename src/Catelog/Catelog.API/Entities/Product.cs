@@ -8,6 +8,8 @@ namespace Catelog.API.Entities
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)] //MongoDB Primary key Annotation
         public string Id { get; set; }
+
+        [BsonElement("Name")]
         public string Name { get; set; }
 
         public string Category { get; set; }
