@@ -1,7 +1,10 @@
-﻿namespace Catelog.API.Entities
+﻿using MongoDB.Bson.Serialization.Attributes;
+
+namespace Catelog.API.Entities
 {
     public class Product
     {
+        [BsonId]
         public string Id { get; set; }
         public string Name { get; set; }
 
