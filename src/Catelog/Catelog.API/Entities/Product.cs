@@ -1,10 +1,12 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Catelog.API.Entities
 {
     public class Product
     {
         [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)] //MongoDB Primary key Annotation
         public string Id { get; set; }
         public string Name { get; set; }
 
