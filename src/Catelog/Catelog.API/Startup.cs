@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Catelog.API.Data;
 using Catelog.API.Data.Interfaces;
+using Catelog.API.Repositories.Implimentations;
+using Catelog.API.Repositories.Interfaces;
 using Catelog.API.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,6 +35,7 @@ namespace Catelog.API
             services.AddSingleton<ICatalogDatabaseSettings>(sp => sp.GetRequiredService<IOptions<CatalogDatabaseSettings>>().Value);
 
             services.AddTransient<ICatalogContext, CatalogContext>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
         }
 
