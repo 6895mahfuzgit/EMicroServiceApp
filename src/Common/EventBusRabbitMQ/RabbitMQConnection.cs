@@ -31,12 +31,30 @@ namespace EventBusRabbitMQ
 
         public IModel CreateModel()
         {
-            throw new System.NotImplementedException();
+            if (!IsConnected)
+            {
+                throw new InvalidOperationException("Not connected to RabbitMQ server");
+            }
+
+            return _connection.CreateModel();
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            if (_dispose)
+            {
+                return;
+            }
+
+            try
+            {
+                _connection.Dispose();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public bool TryConnect()
