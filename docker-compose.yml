@@ -5,7 +5,9 @@ services:
          image: mongo
      basketdb:
          image: redis
-            
+     rabbitmq:
+         image: rabbitmq:3-management
+
      catelog.api:
         image: ${DOCKER_REGISTRY-}catelogapi
         build:
