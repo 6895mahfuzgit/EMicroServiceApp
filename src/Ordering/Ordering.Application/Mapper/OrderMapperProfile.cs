@@ -9,6 +9,7 @@ namespace Ordering.Application.Mapper
         public OrderMapperProfile()
         {
             CreateMap<Order, OrderResponse>().ReverseMap();
+            CreateMap<Order, CheckoutOrderComman>().ReverseMap();
         }
     }
 }
