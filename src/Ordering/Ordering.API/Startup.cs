@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Ordering.API.Extentions;
 using Ordering.API.RabbitMQ;
 using Ordering.Application.Handlers;
 using Ordering.Core.Repositories;
@@ -91,6 +92,9 @@ namespace Ordering.API
             {
                 endpoints.MapControllers();
             });
+
+            app.UseRabbitMQListener();
+
 
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Order API v1"));
